@@ -1,0 +1,7 @@
+{
+    "app_id": "adpdemo-maiek",
+    "config_version": 20210101,
+    "name": "ADPDemo",
+    "location": "IE",
+    "deployment_model": "LOCAL"
+}

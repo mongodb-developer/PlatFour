@@ -1,0 +1,67 @@
+
+  .form_container {
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    font-size: 16pt;
+    font-family: verdana;
+    color: blue;
+  }
+
+
+td.keyname {
+
+  x-text-transform: capitalize;
+  text-align: right;
+  vertical-align: text-top;
+  padding-right: 10px;
+  font-weight: bold;
+  width:1%;
+  white-space:nowrap;
+}
+
+table.jsonobject::before {
+    content: "{"
+}
+
+
+table.jsonobject::after {
+    content: "},"
+}
+table.jsonobject {
+  border-collapse: collapse;
+  background-color: black;
+  width: 100%;
+}
+
+table.jsonarray::before {
+    content: "["
+}
+
+table.jsonarray::after {
+    content: "],"
+}
+
+
+
+table.jsonarray {
+  width:100%;
+  x-border:10px solid aliceblue;
+
+  border-collapse: collapse;
+}
+
+tr.jsonobject {
+  width:100%;
+ 
+}
+
+
+td.jsonobject  {
+    x-border:1px solid rgb(197, 193, 193);
+    border-collapse: collapse;
+    background-color: black;
+  }
+

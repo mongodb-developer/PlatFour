@@ -1,0 +1,45 @@
+[
+    {
+        "name": "joinGame",
+        "private": false,
+        "run_as_system": true
+    },
+    {
+        "name": "processMove",
+        "private": false,
+        "run_as_system": true
+    },
+    {
+        "name": "abandonGame",
+        "private": false,
+        "run_as_system": true
+    },
+    {
+        "name": "checkForWinner",
+        "private": true,
+        "run_as_system": true
+    },
+    {
+        "name": "expireGames",
+        "private": true
+    },
+    {
+        "name": "geoLocate",
+        "private": true
+    },
+    {
+        "name": "getGameUpdate",
+        "private": false,
+        "run_as_system": true
+    },
+    {
+        "name": "isOffensiveUsername",
+        "private": false,
+        "run_as_system": true
+    },
+    {
+        "name": "aggregatePlays",
+        "private": false,
+        "run_as_system": true
+    }
+]

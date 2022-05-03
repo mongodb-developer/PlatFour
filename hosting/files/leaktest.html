@@ -1,0 +1,49 @@
+<html>
+
+<head>
+
+    <script src="https://unpkg.com/realm-web@1.2.0/dist/bundle.iife.js"></script>
+    <script>
+        let realmApp = null;
+
+async function initRealmApp() {
+    realmApp = new Realm.App({ id: "adpdemo-maiek" });
+    //Dont log in again  if we are logged in
+    realmUser = realmApp.currentUser
+    if (!realmUser) {
+        const credentials = Realm.Credentials.anonymous();
+        try {
+            realmUser = await realmApp.logIn(credentials);
+        } catch (err) {
+            alert("Failed to log in", err);
+            console.log(err)
+        }
+    }
+}
+
+async function onLoad()
+{
+    await initRealmApp();
+    setInterval(getData,500)
+}
+
+async function getData()
+{
+    try {
+        //Returns null if no new update
+        let gameState = await realmUser.functions.leakTest();
+        console.log(gameState)
+    } catch(e) {
+        console.error(e)
+    }
+}
+
+
+    </script>
+</head>
+
+<body onLoad="onLoad()">
+
+</body>
+
+</html>

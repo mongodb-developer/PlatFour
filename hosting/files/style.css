@@ -1,0 +1,441 @@
+
+@media screen and (orientation: landscape) 
+{
+    .main_view {
+        max-width: 600px;
+        position: absolute;
+        width: 100%;
+        float: left;
+        
+        height: 100%;
+    }
+} 
+@font-face{
+    font-family:Source Code Pro;
+    src:url(https://static.mongodb.com/com/fonts/SourceCodePro-Regular.ttf) format('truetype');
+}
+
+@font-face {
+
+    font-family:Euclid Circular A;
+    src:url(https://static.mongodb.com/com/fonts/EuclidCircularA-Regular-WebXL.woff2) format('woff2');
+}
+
+@font-face {
+    font-family:MongoDB Value Serif;
+    src:url(https://static.mongodb.com/com/fonts/MongoDBValueSerif-Regular.woff2) format('woff2');
+}
+
+
+
+
+body {
+    background-color: #001e2b;
+    color: white; 
+    font-family:Euclid Circular A;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    z-index: 1;
+    margin: 0; 
+    overflow: hidden;
+    touch-action: none;
+
+}
+
+h2 {
+    font-family:MongoDB Value Serif;
+    font-weight:400;
+}
+
+.scores {
+    position: relative;
+    float: left;
+
+    background-color: #001e2b;;
+    color: #00ed64;
+    display: block;
+    font-size: large;
+    padding-top:90%;
+    width: 100%;
+}
+.gamegrid {
+    position: absolute;
+    top: 20px;
+    left: 0%;
+    
+    padding: 49.5%;
+    padding-top: 35%;
+    box-sizing: border-box; 
+    display: inline-block;
+    border: 2px solid white;
+  
+        background-image:
+          repeating-linear-gradient(#ccc 0 1px, transparent 1px 100%),
+          repeating-linear-gradient(90deg, #ccc 0 1px, transparent 1px 100%);
+        background-size: 14.28% 16.667%;
+    
+}
+
+.gridsquare {
+    position: absolute;
+    display: inline-block; 
+    border: 1px solid #00ed64;
+}
+
+.puck {
+    position: absolute;
+    display: inline-block; 
+    border-radius: 50%;
+    margin: 0.5%;
+    border: 2px solid #001e2b;
+    transition-timing-function: ease-in;
+    transition: top 0.3s ;
+  
+}
+.playerone {
+   
+    
+    display: block;
+    width: 20%;
+    text-align: center;
+    float: left;
+}
+
+.score {
+    font-size: xx-large;
+    text-align: center;
+}
+.playeronechar {
+    border-radius: 50%;
+    border: 2px solid white;
+    background: #00D2FF ;
+    text-align: center;
+    color: white;
+    
+    width: 0px;
+    height: 0px;
+    padding:40%;
+    margin-left: 5%;
+}
+
+.playeronearrow {
+    display: block;
+    color: white;
+    float: left;
+    font-size: x-large;
+}
+
+.playertwo {
+   
+   
+    display: block;
+    width: 20%;
+    text-align: center;
+    float: right;
+}
+
+.playertwochar {
+    border-radius: 50%;
+    padding:5%;
+    border: 2px solid white;
+    background: #FFE212 ;
+    color: #001e2b;
+    width: 0px;
+    height: 0px;
+    padding:40%;
+    margin-left: 5%;
+}
+
+.playertwoarrow {
+    color: white;
+    float: right;
+    font-size: x-large;
+}
+
+.data {
+    border: 2px solid white;
+    margin:0 auto;
+    width: 75%;
+
+   text-align: center;
+}
+
+.yourname {
+    margin:0 auto;
+}
+
+.login {
+
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: xx-large;
+    margin: 0;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.button {
+  
+    background-color:  #00684A;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: x-large;
+    border-radius:0.5em;
+    width: 80%;
+    margin-top: 20px;;
+  }
+
+  .smallbutton {
+  
+    background-color:  #00684A;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: x-large;
+    border-radius:0.5em;
+   
+    margin-top: 5px;
+  }
+
+.endbutton {
+    
+    background-color:  #00684A;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: large;
+  margin-top: 40;
+   width: 80%;
+    border-radius:0.5em;
+    margin-left: 10%;
+  }
+
+  .boothleft {
+    position: absolute;
+      width: 40%;
+      float: left;
+      top: 20px;
+      height: 100%;
+  }
+
+  .boothright {
+    margin-top: 40px;
+    color: #00ed64;
+    font-family:'Source Code Pro', monospace;
+    width: 60%;
+    float: right;
+    page-break-inside: avoid;
+  
+    display: block;
+    word-wrap: break-word;
+  
+}
+
+
+
+
+.nameinput {
+    margin-bottom: 2%;
+    border-radius:0.5em;
+    font-size: x-large;
+    padding-left: 2%;
+
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+.changed {
+    color: white;
+    font-weight: bold;
+}
+
+.bsonobj {
+
+    border: 1px solid #00ed64;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  
+    white-space:pre-wrap;
+    font-family:'Source Code Pro', monospace;
+  
+
+}
+
+.label {
+    color: white;
+    margin-left: 20px;
+}
+
+
+.srclink {
+  
+    background-color:  #00684A;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: large;
+    border-radius:0.5em;
+    margin-left: 10px;
+    margin-top: 20px;;
+  }
+
+
+  .menulink {
+    width: 60%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:  #00684A;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: large;
+    border-radius:0.5em;
+    margin-top: 10px;
+  }
+
+  .menudivider {
+    text-align: center;
+    font-family:Euclid Circular A;
+    font-size: x-large;
+  }
+
+  .qrcode {
+    position: absolute;
+    width: 20%;
+    float: left;
+    margin-top: 10%;
+    margin-left: 10%;
+    height: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+
+
+
+  .tspipeline {
+    padding: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border: 1px solid green;
+    overflow-y: auto;
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+}
+
+
+.datatable {
+    border: 1px solid;
+    border-collapse: collapse;
+   width: 100%;
+   table-layout: auto;
+   text-align: center ;
+  
+}
+
+
+
+.tschartcanvas {
+
+    margin: 20px;
+    background-color: white;
+
+}
+
+td.datatable {
+    border: 1px solid white;
+    width: 200px;
+  }
+
+  th.datatable {
+    border: 1px solid white;
+    width: 200px;
+  }
+
+  td.datatable+td.datatable {
+    width: auto;
+  }
+
+  th.datatable+th.datatable {
+    width: auto;
+  }
+
+.binder {
+    margin-top: 20px;
+    #border: 1px solid red;
+    display: flex;
+    height: 50%;
+    
+  
+}
+.tsoutput {
+   
+    border: 1px solid;
+    overflow-y: auto;
+    width: 50%;
+    margin-right: 20px;
+    padding-bottom: 20px;
+}
+
+.tschart {
+    position: relative;
+    margin: 20px;
+    height: 25%;
+    clear: left;
+    display: grid;
+    grid-template-columns: max-content auto 
+}
+
+
+.dropdown {
+  
+
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    text-align: left;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #E5E5E5;
+    padding: 5px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);
+    display: table;
+    margin: 0 auto;
+    font-size: 13px;
+  
+  }

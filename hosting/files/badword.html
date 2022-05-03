@@ -1,0 +1,55 @@
+<html>
+<head id="head">
+    <title> Offensive Username Check </title>
+    <link rel="stylesheet" href="style.css?d">
+
+    <script src="https://unpkg.com/realm-web@1.2.0/dist/bundle.iife.js"></script>
+
+    <script>
+
+        //Connect to the App and Authenticate (Anonymous distinct user)
+        function onLoad() {
+            realmApp = new Realm.App({ id: "adpdemo-maiek" });
+            if (! realmApp.currentUser) {
+                realmApp.logIn( Realm.Credentials.anonymous() ).catch( (err) => { console.log(err) });
+            }
+        }
+
+        function checkUsername() {
+            // Call a serverless hosted function as logged in user.
+            name = document.getElementById("username").value;
+            document.getElementById("src").innerText="";
+            realmApp.currentUser.functions.isOffensiveUsername(name)
+
+            .then(w=>{ document.getElementById("result").innerHTML = JSON.stringify(w,null,2)})
+            .catch(e=>console.error(e))
+        }
+    
+    </script>
+</head>
+
+<body onLoad="onLoad()">
+    <script> function showSource() { document.getElementById("src").innerText=document.getElementById("head").innerHTML; document.getElementById("result").innerHTML ="" }</script>
+    <h2>Bad Username Fuzzy Search Check</h2>
+
+    When a new user is logged, we use Atlas Search to see if their username is offensize, this is a fuzzy Search against a corpus of 1300 offensive words. 
+    The definition of fuzzy can be adjusted using Atlas Search and results are ranked by best match.
+    We can use this to determine an algorithm of what is an is not offensive including using differnent stryles of matching.
+
+    <p></p>
+    This page can be used to test the is used to test the isOffensiveUsername function. <p></p>
+    <span style="color: lightgreen">For demonstration purposes the large list of offensive words the game uses to check has been replaced with a list of countries.</span><p></p>
+ 
+    <input class="nameinput" value="Russ14n Bear" style="width: 50%; margin-left: 25%;" id="username"> </input> <br>
+    <button  style="width: 50%; margin-left: 25%;" onClick="checkUsername()" class="button">Test Username</button>
+ 
+    <div style="margin-top: 20px;" class="bsonobj" id="result"></div>
+
+    <a  target="_blank"  href="https://realm.mongodb.com/groups/612e186e76bdc137df9940d2/apps/623096dc90b20941235b60aa/functions/6247046926e66cbbc6e0fdf1" class="srclink">View Atlas Function</a>
+    <button  onClick="showSource()" class="srclink">Show Page Code</button>
+    <div style="margin-top: 20px;" class="bsonobj" id="src"></div>
+</div>
+
+</body>
+
+</html>

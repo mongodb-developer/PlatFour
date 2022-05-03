@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="objrender.css">
+    <script src="https://unpkg.com/realm-web@1.2.0/dist/bundle.iife.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue2-touch-events@3.2.2/index.js"></script>
+    <script src="main.js"></script>
+    <script src="booth.js"></script>
+    <script src="backend.js"></script>
+    <script src="rendercss.js"></script>
+</head>
+
+<body onLoad="onLoad(true)">
+    <div id="main_view">
+
+        <div class="boothleft" id="play_view">
+            <div class="scores">
+
+                <div class="playerone">
+                    <div class="playeronechar"></div>
+                    <div>{{names[0]}}</div>
+                </div>
+                <div class="playeronearrow" v-visible="turnNo%2==0 && status=='live' "> &larr; </div>
+
+                <div class="playertwo">
+                    <div class="playertwochar"></div>
+                    <div>{{names[1]}}</div>
+                </div>
+
+
+                <div class="playertwoarrow" v-visible="turnNo%2==1 && status=='live' "> &rarr; </div>
+
+
+            </div>
+           
+            <div id="game_grid" class="gamegrid" >
+                <span v-for="(column,colidx) in columns">
+                    <span class="puck" v-for="(puck,puckidx) in column"
+                        v-bind:style="getPuckStyle(colidx,puckidx,puck)"> </span>
+                </span>
+                <span v-if="status=='win'" v-bind:style="getWinLine()" class="linethrough"></span>
+            </div>
+
+
+        </div>
+        <div id="codeview" class="boothright">
+            <div class="label">Record</div>
+            <div class="bsonobj" v-html="response"></div>
+            <div class="label">Query API Call</div>
+            <div class="bsonobj"  v-html="lastOp"></div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

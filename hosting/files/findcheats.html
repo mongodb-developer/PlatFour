@@ -1,0 +1,72 @@
+<html>
+<!-- This code is not using any framework, i shoudl do though: TODO change to vue-->
+
+<head id="head">
+    <title> Identifying Cheats via Time Series analysis </title>
+    <link rel="stylesheet" href="style.css?d">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/realm-web@1.2.0/dist/bundle.iife.js"></script>
+    <script src="findcheats.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+</head>
+
+<body onLoad="onLoad()">
+    <div id="main_view">
+        <div class="binder">
+            <div class="tspipeline">
+                <select class="dropdown" v-model="selectedExample" v-on:change="exampleChange()" >
+                    <option class="dropdown" v-for="option in examples" v-bind:value="option.code">
+                        {{ option.name }}
+                    </option>
+                </select>
+                <pre>db.moves.aggregate</pre>
+                <textarea v-model="aggregation" class="pipelinebox" cols=80 rows=25 id="aggregationQuery">
+                    
+                </textarea>
+               
+              <div style="padding: 20px; margin: 0 auto;width:80%" > <button  class="smallbutton" v-on:click="runPipeline">Run Aggregation Pipeline</button>
+                <button class="smallbutton"  v-on:click="runChart">Display as Chart</button>
+            </div>
+            </div>
+            <div id="output" class="tsoutput">
+                <table class="datatable">
+                    <tr class="datatable">
+                        <th class="datatable" v-for="fieldname in fields"> {{ fieldname }}</th>
+                    </tr>
+                    <tr class="datatable" v-for="row in results">
+                        <td class="datatable" v-for="fieldname in fields"> {{ formatColumn(fieldname,row[fieldname]) }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="chartholder" class="tschart">
+
+
+
+            <div> <select style="float: left" class="dropdown" v-model="yaxis">
+                    <option class="dropdown" v-for="fieldname in fields" v-bind:value="fieldname">
+                        {{ fieldname }}
+                    </option>
+                </select>
+            </div>
+
+
+            <div class="canvasholder"><canvas id="myChart" class="tschartcanvas"></canvas> </div>
+            <div></div>
+            <div> <select class="dropdown" v-model="xaxis" >
+                    <option class="dropdown" v-for="fieldname in fields" v-bind:value="fieldname">
+                        {{ fieldname }}
+                    </option>
+                </select>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
