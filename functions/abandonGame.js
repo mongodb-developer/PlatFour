@@ -8,12 +8,12 @@ exports = async function(gameId)
   
 
   let query = { _id: gameId, status: {$in : ["live","waitingForSecondPlayer"]} , players: playerId };
-  let update = { $set : { status: "abandoned" }}
-   let options= {returnNewDocument: true}
-   console.log(JSON.stringify(query))
+  let update = { $set : { status: "abandoned" }};
+   let options= {returnNewDocument: true};
+   console.log(JSON.stringify(query));
    try {
   let gameState = await gameCollection.findOneAndUpdate(query,update,options);
-    return gameState 
+    return gameState ;
    } catch(e) {
      console.log(e);
    }

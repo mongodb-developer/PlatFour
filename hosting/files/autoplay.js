@@ -2,17 +2,24 @@
 //Added as a way of testing and generating data - plays randomly.
 async function autoPlay(turnMode, min, max) {
     "use strict";
-    console.log("AutoPlay Function Called")
+    //console.log("AutoPlay Function Called")
     try {
 
     
     //Are we at the login screen - if so we need to press play
     if (vueApp.showlogin) {
         console.log("New Game")
-        if(Math.random() < 0.1) {
+        if(Math.random() < 0.4) {
             console.log("Changing Realm User")
             await newRealmUser();
             vueApp.name=""
+            min = 1500
+            max = 5000
+            if (Math.random() < 0.1) {
+                min = 100
+                max = 300
+                console.log("***> Cheating Bot")
+            }
         }
         if (vueApp.name.includes(". ") == false) {
             vueApp.name = names[Math.floor(Math.random()*names.length)]+". "
@@ -30,7 +37,7 @@ async function autoPlay(turnMode, min, max) {
 
     else if (vueApp.status == "waitingForSecondPlayer") {
         if (Math.random() < 0.01) { await endGame(); }
-        console.log("Waiting...")
+        //console.log("Waiting...")
         const gameState = await getUpdate(vueApp.gameId, 0);
         parseGameState(gameState)
 
@@ -44,7 +51,13 @@ async function autoPlay(turnMode, min, max) {
 {
     console.log(e.message)
 }
-    setTimeout(function () { autoPlay(turnMode, min, max) }, Math.random() * max + min); //400 to 10000ms
+    //Make non cheating bots behave like humans.
+    let slowby = 0
+    if(min > 1000) {
+        slowby = vueApp.turnNo * (Math.random() * 500); //Slow by average 250ms per turn if not bot
+    }
+
+    setTimeout(function () { autoPlay(turnMode, min, max) },  Math.random() * (max-min) + min + slowby); //400 to 10000ms
 }
 
 

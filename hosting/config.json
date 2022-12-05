@@ -1,4 +1,7 @@
 {
     "enabled": true,
-    "app_default_domain": "adpdemo-maiek.mongodbstitch.com"
+    "custom_domain": "platfour.me",
+    "app_default_domain": "adpdemo-maiek.mongodbstitch.com",
+    "default_error_path": "/index.html",
+    "default_error_code": "200"
 }

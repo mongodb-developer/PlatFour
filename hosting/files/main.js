@@ -94,17 +94,17 @@ async function onLoad(viewOnly) {
             let maxTime = 5000
             if (Math.random() < 0.1) {
                 minTime = 100
-                maxTime = 100
+                maxTime = 300
                 console.log("Cheating")
             }
-            setTimeout(function () { autoPlay(true, minTime, maxTime) }, Math.random() * minTime + maxTime);
+            setTimeout(function () { autoPlay(true, minTime, maxTime) }, Math.random() * (maxTime-minTime) + minTime);
         }
 
         if (!viewOnly && window.location.search == "?automayhem") {
             let minTime = 500
             let maxTime = 500
             console.log("Autobot Engage")
-            setTimeout(function () { autoPlay(false, minTime, maxTime) }, Math.random() * minTime + maxTime); //400 to 10000ms
+            setTimeout(function () { autoPlay(false, minTime, maxTime) },  Math.random() * (maxTime-minTime) + minTime); //400 to 10000ms
         }
 
     }
@@ -253,7 +253,7 @@ async function startGame(takeTurns) {
     parseGameState(gameState)
     vueApp.showlogin = false
     setupWatch(vueApp.gameId);
-    console.log(`Explicit Check: ${new Date} ${vueApp.gameId}`)
+    //console.log(`Explicit Check: ${new Date} ${vueApp.gameId}`)
     gameState = await getUpdate(vueApp.gameId, 0);
     parseGameState(gameState)
 
@@ -263,7 +263,7 @@ async function setupWatch(gameId) {
     const mongo = realmApp.currentUser.mongoClient("mongodb-atlas");
     const games = mongo.db("ADPDemoGame").collection("games");
     //Also get it again to make sure we didn't miss anything before we got that set up.
-    console.log(`Watching: ${new Date} ${gameId}`)
+    //console.log(`Watching: ${new Date} ${gameId}`)
 
 
     while (true) {
@@ -291,6 +291,7 @@ async function setupWatch(gameId) {
             }
         } catch (e) {
             console.error(e.message)
+            location.reload()
         }
     }
 

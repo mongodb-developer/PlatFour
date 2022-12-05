@@ -16,7 +16,7 @@
     <script src="rendercss.js"></script>
     <script src="backend.js"></script>
     <script src="autoplay.js"></script>
-    <title> Plat-Four</title>
+    <title> Platfour</title>
 
 </head>
 
@@ -25,11 +25,14 @@
     <div class="main_view"id="main_view">
         <div class="login" v-if="showlogin" id="login_view">
             <!-- We need this for fullscreen mode-->
-            <h2>MongoDB Application Data Platfour</h2>
+            <h2>Platfour</h2>
 
             <div class="yourname">Your Name </div><div><input class="nameinput" v-model="name" placeholder=""></div>
             <button :disabled="name && name.length < 3" v-on:click="startGame(true)" class="button"> Play Classic</button>
             <button :disabled="name && name.length < 3" v-on:click="startGame(false)" class="button"> Play Mayhem </button>
+            <div style="margin-top: 50;">
+                <a style="font-size: 14pt;color: white;" href="/welcome.html">Main Demo Menu</a>
+            </div>
         </div>
         <div v-else id="play_view">
             <div class="scores">
@@ -54,6 +57,7 @@
               
             </div>
             <div v-on:click="endGame()" class="endbutton">End Game</div> 
+
             <div id="game_grid" class="gamegrid" v-touch:tap="tapHandler">
                 <span v-for="(column,colidx) in columns">
                     <span class="puck" v-for="(puck,puckidx) in column"  v-bind:style="getPuckStyle(colidx,puckidx,puck)"> </span>
@@ -62,8 +66,9 @@
             </div>
 
         </div>
-    </div>
-
+    
+    
+</div>
 </body>
 
 </html>

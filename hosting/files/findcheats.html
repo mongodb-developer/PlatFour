@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/realm-web@1.2.0/dist/bundle.iife.js"></script>
     <script src="findcheats.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9/dist/chart.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 
@@ -18,7 +18,7 @@
         <div class="binder">
             <div class="tspipeline">
                 <select class="dropdown" v-model="selectedExample" v-on:change="exampleChange()" >
-                    <option class="dropdown" v-for="option in examples" v-bind:value="option.code">
+                    <option class="dropdown" v-for="option in examples" v-bind:value="option">
                         {{ option.name }}
                     </option>
                 </select>
