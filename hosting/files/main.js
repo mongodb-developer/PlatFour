@@ -16,7 +16,7 @@ Vue.directive('visible', function (el, binding) {
 
 async function initRealmApp() {
     "use strict";
-    realmApp = new Realm.App({ id: "adpdemo-maiek" });
+    realmApp = new Realm.App({ id: "platfour-qhfdw" });
     //Dont log in again  if we are logged in
     realmUser = realmApp.currentUser
     if (!realmUser) {

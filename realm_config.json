@@ -1,8 +1,8 @@
 {
-    "app_id": "adpdemo-maiek",
+    "app_id": "platfour-qhfdw",
     "config_version": 20210101,
-    "name": "ADPDemo",
-    "location": "IE",
-    "provider_region": "aws-eu-west-1",
+    "name": "PlatFour",
+    "location": "VA",
+    "provider_region": "aws-us-east-1",
     "deployment_model": "LOCAL"
 }

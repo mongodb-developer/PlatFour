@@ -80,7 +80,7 @@ function exampleChange(value) {
 function onLoad() {
   "use strict";
   console.log("Connecting")
-  realmApp = new Realm.App({ id: "adpdemo-maiek" });
+  realmApp = new Realm.App({ id: "platfour-qhfdw" });
   if (!realmApp.currentUser) {
     realmApp.logIn(Realm.Credentials.anonymous()).catch((err) => { console.log(err) });
   }
