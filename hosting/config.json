@@ -2,6 +2,6 @@
     "enabled": true,
     "custom_domain": "platfour.me",
     "app_default_domain": "platfour-qhfdw.mongodbstitch.com",
-    "default_error_path": "/index.html",
-    "default_error_code": "200"
+    "default_error_path": "",
+    "default_error_code": ""
 }
